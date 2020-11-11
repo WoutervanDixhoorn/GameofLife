@@ -4,9 +4,9 @@
 .vs
 
 #VisualStudio
-.sln
-.vcxproj
-.filters
+*.sln
+*.vcxproj
+*.vcxproj.filters
 
 # Compiled Object files
 *.slo
