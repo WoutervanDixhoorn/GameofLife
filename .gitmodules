@@ -1,0 +1,3 @@
+[submodule "GameofLife/vendor/glfw"]
+	path = GameofLife/vendor/glfw
+	url = https://github.com/TheCherno/glfw.git
