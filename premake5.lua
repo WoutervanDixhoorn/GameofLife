@@ -1,6 +1,6 @@
 workspace "GameofLife"
    configurations { "Debug", "Release" }
-   startupproject "GameofLife"
+   startproject "GameofLife"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
