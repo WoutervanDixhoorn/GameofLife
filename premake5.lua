@@ -1,14 +1,21 @@
+include "./vendor/premake/premake_customizations/solution_items.lua"
+
 workspace "GameofLife"
-   configurations { "Debug", "Release" }
+   architecture "x64"
    startproject "GameofLife"
+
+   configurations { "Debug", "Release", "Dist" }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "GameofLife/vendor/glfw/include"
+IncludeDir["GLFW"] = "%{wks.location}/Douter/vendor/glfw/include"
+IncludeDir["Glad"] = "%{wks.location}/Douter/vendor/glad/include"
 
-group "Dpendencies" 
-   include "GameofLife/vendor/glfw"
+group "Dependencies"
+	include "Douter/vendor/glfw"
+	include "Douter/vendor/glad"
 group ""
 
+include "Douter"
 include "GameofLife"

@@ -1,9 +1,23 @@
+#include "Douter.h"
+#include "Douter/EntryPoint.h"
+
 #include <iostream>
 
-#include "GLFW/glfw3.h"
-
-int main()
+class GameofLife : public Douter::Application
 {
-	std::cout << "Hello World!" << std::endl;
-	return 0;
+public:
+    
+    GameofLife() : Application("GameofLife")
+    {
+    }
+
+    ~GameofLife()
+    {
+    }
+
+};
+
+Douter::Application* Douter::CreateApplication()
+{
+    return new GameofLife();
 }

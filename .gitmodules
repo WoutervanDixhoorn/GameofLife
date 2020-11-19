@@ -1,0 +1,3 @@
+[submodule "Douter/vendor/glfw"]
+	path = Douter/vendor/glfw
+	url = https://github.com/TheCherno/glfw.git
