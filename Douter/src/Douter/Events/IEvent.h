@@ -20,12 +20,12 @@ namespace Douter {
 	public:
 		EventDispatcher(IEvent& event) : m_Event(event) {}
 
-		template<typename t, typename f>
-		void Dispatch(const f& Fn)
+		template<typename T, typename F>
+		void Dispatch(const F& func)
 		{	
-			if (m_Event.getType() == t::getStaticType())
+			if (m_Event.getType() == T::getStaticType())
 			{
-				Fn();
+				func(static_cast<T&>(m_Event));
 			}
 		}
 

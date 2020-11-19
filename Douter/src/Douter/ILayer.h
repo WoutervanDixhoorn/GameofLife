@@ -9,7 +9,6 @@ namespace Douter {
 		virtual void OnDetach() = 0;
 
 		virtual void OnUpdate() = 0;
-		virtual void OnEvent(IEvent& event) = 0;
 	};
 
 }

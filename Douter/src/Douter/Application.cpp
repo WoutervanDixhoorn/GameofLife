@@ -4,12 +4,15 @@
 
 #include "Douter/Events/WindowEvent.h"
 
+
+#define HZ_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
+
 namespace Douter {
 
 	Application::Application(const std::string& name)
 	{
 		m_Window = Window::Create(WinProps(name));
-		m_Window->SetEventCallbackFunction(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+		m_Window->SetEventCallbackFunction(HZ_BIND_EVENT_FN(Application::OnEvent));
 
 		m_Running = true;
 	}
@@ -18,12 +21,11 @@ namespace Douter {
 	{
 	}
 
-	void Application::OnEvent(IEvent& event)
+	void Application::OnEvent(IEvent& e)
 	{
-		
-		EventDispatcher dispatcher(event);
+		EventDispatcher dispatcher(e);
 
-		dispatcher.Dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this));
+		dispatcher.Dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
 
 	} 
 
@@ -35,7 +37,7 @@ namespace Douter {
 		}
 	}
 
-	void Application::OnWindowClose()
+	void Application::OnWindowClose(WindowCloseEvent& e)
 	{
 		m_Running = false;
 	}

@@ -4,6 +4,8 @@
 
 #include "Window.h"
 
+#include "Douter/Events/WindowEvent.h"
+
 int main(int argc, char** argv);
 
 namespace Douter {
@@ -15,9 +17,9 @@ namespace Douter {
 		Application(const std::string& name = "Douter Engine");
 		virtual ~Application();
 
-		void OnEvent(IEvent& event);
+		void OnEvent(IEvent& e);
 
-		void OnWindowClose();
+		void OnWindowClose(WindowCloseEvent& e);
 
 		void run();
 	private:

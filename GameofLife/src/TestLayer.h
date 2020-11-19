@@ -8,9 +8,5 @@ public:
 	void OnDetach() override;
 
 	void OnUpdate() override;
-	void OnEvent(Douter::IEvent& event) override;
-
-private:
-	void OnWindowResize(Douter::WindowResizeEvent& e);
 };
 
