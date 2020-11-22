@@ -15,12 +15,14 @@ project "Douter"
    includedirs {
       "src",
       "%{IncludeDir.GLFW}",
-      "%{IncludeDir.Glad}"
+      "%{IncludeDir.Glad}",
+      "%{IncludeDir.ImGui}"
    }
 
    links {
       "GLFW",
       "Glad",
+      "ImGui",
       "opengl32.lib"
    }
 
@@ -29,6 +31,7 @@ project "Douter"
 
       defines
       {
+        "GLFW_INCLUDE_NONE"
       }
 
    filter "configurations:Debug"

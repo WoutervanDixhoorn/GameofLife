@@ -5,7 +5,10 @@ namespace Douter {
 
 	enum class EventType {
 		WindowCloseEvent,
-		WindowResizeEvent
+		WindowResizeEvent,
+		MouseMoveEvent,
+		MousePressEvent,
+		MouseReleaseEvent
 	};
 
 	class IEvent
@@ -13,6 +16,7 @@ namespace Douter {
 	public:
 		virtual EventType getType() const = 0;
 
+		bool m_Handled = false;
 	};
 
 	class EventDispatcher
@@ -25,7 +29,7 @@ namespace Douter {
 		{	
 			if (m_Event.getType() == T::getStaticType())
 			{
-				func(static_cast<T&>(m_Event));
+				m_Event.m_Handled = func(static_cast<T&>(m_Event));
 			}
 		}
 

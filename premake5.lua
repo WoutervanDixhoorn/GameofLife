@@ -11,10 +11,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "%{wks.location}/Douter/vendor/glfw/include"
 IncludeDir["Glad"] = "%{wks.location}/Douter/vendor/glad/include"
+IncludeDir["ImGui"] = "%{wks.location}/Douter/vendor/ImGui"
 
 group "Dependencies"
 	include "Douter/vendor/glfw"
 	include "Douter/vendor/glad"
+	include "Douter/vendor/ImGui"
 group ""
 
 include "Douter"

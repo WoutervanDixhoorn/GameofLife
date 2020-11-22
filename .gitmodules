@@ -1,3 +1,6 @@
 [submodule "Douter/vendor/glfw"]
 	path = Douter/vendor/glfw
 	url = https://github.com/TheCherno/glfw.git
+[submodule "Douter/vendor/ImGui"]
+	path = Douter/vendor/ImGui
+	url = https://github.com/ocornut/imgui.git
