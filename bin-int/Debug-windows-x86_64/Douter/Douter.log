@@ -1,5 +1,0 @@
-﻿  Application.cpp
-D:\Dev\C++\GameofLife\Douter\src\Douter\LayerStack.h(18,14): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Dev\C++\GameofLife\Douter\src\Douter\Application.cpp(45,30): warning C4018: '<': signed/unsigned mismatch
-D:\Dev\C++\GameofLife\Douter\src\Douter\Application.cpp(61,31): warning C4018: '<': signed/unsigned mismatch
-  Douter.vcxproj -> D:\Dev\C++\GameofLife\bin\Debug-windows-x86_64\Douter\Douter.lib

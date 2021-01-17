@@ -1,2 +1,0 @@
-D:\Dev\C++\GameofLife\bin\Debug-windows-x86_64\Douter\Douter.pdb
-D:\Dev\C++\GameofLife\bin-int\Debug-windows-x86_64\Douter\Douter.pdb

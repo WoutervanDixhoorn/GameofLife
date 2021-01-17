@@ -9,9 +9,15 @@ public:
 	void OnDetach() override;
 
 	void OnUpdate() override;
-	bool OnEvent(Douter::IEvent& e) override;
+	void OnEvent(Douter::IEvent& e) override;
+
+	void OnImGuiRender() override;
 
 private:
-	bool OnWindowResize(Douter::WindowResizeEvent& e);
+	std::unique_ptr<Douter::Texture> m_Texture;
+	std::unique_ptr<Douter::Shader> m_Shader;
+	std::unique_ptr<Douter::VertexBuffer> m_VertexBuffer;
+	std::unique_ptr<Douter::VertexArray> m_VertexArray;
+	std::unique_ptr<Douter::IndexBuffer> m_IndexBuffer;
 };
 

@@ -7,11 +7,13 @@ namespace Douter {
 	class ILayer {
 
 	public:
-		virtual void OnAttach() = 0;
-		virtual void OnDetach() = 0;
+		virtual void OnAttach() {};
+		virtual void OnDetach() {};
 
-		virtual void OnUpdate() = 0;
-		virtual bool OnEvent(IEvent& e) = 0;
+		virtual void OnUpdate() {};
+		virtual void OnEvent(IEvent& e) {};
+
+		virtual void OnImGuiRender() {};
 	};
 
 }

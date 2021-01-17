@@ -16,7 +16,8 @@ project "Douter"
       "src",
       "%{IncludeDir.GLFW}",
       "%{IncludeDir.Glad}",
-      "%{IncludeDir.ImGui}"
+      "%{IncludeDir.ImGui}",
+      "%{IncludeDir.stb_image}"
    }
 
    links {

@@ -33,6 +33,8 @@ namespace Douter {
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
 
+		virtual void* GetNativeWindow() = 0;
+
 		static Window* Create(const WinProps& props = WinProps());
 	};
 

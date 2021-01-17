@@ -6,6 +6,13 @@
 #include "glad/glad.h"
 #include <Platform/Windows/WindowsWindow.h>
 
+#include "Platform/OpenGL/OpenGLTexture.h"
+#include "Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
+#include "Platform/OpenGL/OpenGLVertexArray.h"
+
+#include "Rendering/Renderer.h"
+
 namespace Douter {
 
 	Application* Application::s_Instance = nullptr;
@@ -19,7 +26,9 @@ namespace Douter {
 
 		m_Layers = new LayerStack();
 
-		m_Running = true;
+		m_ImGuiLayer = new ImGuiLayer();
+		PushLayer(m_ImGuiLayer);
+
 	}
 
 	Application::~Application()
@@ -53,6 +62,7 @@ namespace Douter {
 
 	void Application::run()
 	{
+		m_Running = true;
 		while (m_Running)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -61,6 +71,13 @@ namespace Douter {
 			{
 				m_Layers->at(i)->OnUpdate();
 			}
+
+			m_ImGuiLayer->Begin();
+			for (unsigned int i = 0; i < m_Layers->size(); i++)
+			{
+				m_Layers->at(i)->OnImGuiRender();
+			}
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

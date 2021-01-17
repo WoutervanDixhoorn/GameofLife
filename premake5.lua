@@ -12,6 +12,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "%{wks.location}/Douter/vendor/glfw/include"
 IncludeDir["Glad"] = "%{wks.location}/Douter/vendor/glad/include"
 IncludeDir["ImGui"] = "%{wks.location}/Douter/vendor/ImGui"
+IncludeDir["stb_image"] = "%{wks.location}/Douter/vendor/stb_image"
 
 group "Dependencies"
 	include "Douter/vendor/glfw"

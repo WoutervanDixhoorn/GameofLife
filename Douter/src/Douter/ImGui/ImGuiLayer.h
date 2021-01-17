@@ -17,15 +17,14 @@ namespace Douter {
 		}
 
 		void OnAttach() override;
-		void OnDetach() override ;
+		void OnDetach() override;
 
 		void OnUpdate() override;
-		bool OnEvent(IEvent& e) override;
 
-	private:
-		bool OnMouseMove(MouseMoveEvent& e);
-		bool OnMousePress(MousePressEvent& e);
-		bool OnMouseRelease(MouseReleaseEvent& e);
+		void OnImGuiRender() override;
+
+		void Begin();
+		void End();
 	private:
 		float m_Time = 0;
 	};

@@ -4,6 +4,7 @@
 
 #include "Douter/Events/WindowEvent.h"
 #include "Douter/Events/MouseEvent.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Douter {
 
@@ -26,7 +27,7 @@ namespace Douter {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::Init(const WinProps& props = WinProps())
@@ -36,8 +37,8 @@ namespace Douter {
 		m_Data.Title = props.m_title;
 
 		glfwInit();
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 		m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
@@ -47,12 +48,8 @@ namespace Douter {
 			glfwTerminate();
 		}
 
-		glfwMakeContextCurrent(m_Window);
-
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			std::cout << "Failed to init Glad" << std::endl;
-		}
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
 
 		glViewport(0, 0, m_Data.Width, m_Data.Height);
 

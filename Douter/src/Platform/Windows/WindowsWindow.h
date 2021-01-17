@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Douter/Window.h"
+#include "Douter/Rendering/GraphicsContext.h"
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
@@ -19,11 +20,14 @@ namespace Douter {
 		unsigned int GetWidth() const override { return m_Data.Width; }
 		unsigned int GetHeight() const override { return m_Data.Height; }
 
+		void* GetNativeWindow() override { return m_Window; }
+
 		void SetEventCallbackFunction(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
 	private:
 		virtual void Init(const WinProps& props);
 	private:
 		GLFWwindow* m_Window;	
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

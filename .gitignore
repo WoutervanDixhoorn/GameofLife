@@ -36,3 +36,6 @@
 # Executables
 *.out
 *.app
+bin
+bin-int
+bin
